@@ -9,6 +9,7 @@ pipeline {
         stage('Deploy'){
             steps{
              echo  'deploy ...'
+             
            }
         }
         stage('Test'){
@@ -19,7 +20,20 @@ pipeline {
         stage('Release'){
               steps{
              echo  'Release..'
+             error 'This build wanted maken failure'
            }
+        }
+    }
+
+    post {
+        always{
+            echo ' this will be called all the time builds'
+        }
+        success{
+            echo 'This will be called only on success builds'
+        }
+        failure {
+            echo ' This will be called only on failed builds'
         }
     }
 }
