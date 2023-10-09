@@ -9,7 +9,7 @@ pipeline {
         stage('Deploy'){
             steps{
              echo  'deploy ...'
-             
+
            }
         }
         stage('Test'){
@@ -20,7 +20,13 @@ pipeline {
         stage('Release'){
               steps{
              echo  'Release..'
-             error 'This build wanted maken failure'
+             //error 'This build wanted maken failure'
+           }
+        }
+        stage('PROD'){
+              steps{
+             echo  'prod release..'
+             
            }
         }
     }
